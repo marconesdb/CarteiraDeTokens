@@ -1,7 +1,10 @@
+/* TokenTransfer.css */
+
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #6c6868;
+  background-color: #f0f0f0;
   margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,19 +12,66 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: calc(100% - 40px);
-  margin: 20px;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
 h2 {
   text-align: center;
   color: #333;
+}
+
+.connect-wallet-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.connect-wallet-button {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.connect-wallet-button.connected {
+  background-color: #4caf50; /* Cor quando conectado */
+}
+
+.connection-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50; /* Cor do indicador quando conectado */
+  border-radius: 50%;
+  margin-left: 5px; /* Espaçamento entre o botão e o indicador */
+}
+
+.data-hora {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.numero-conta {
+  margin-top: 10px;
+}
+
+.info-section {
+  text-align: start;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d8d108;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .form-group {
@@ -39,7 +89,6 @@ h2 {
   border-radius: 4px;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
-  margin: 0 auto;
 }
 
 .form-control:focus {
@@ -48,7 +97,7 @@ h2 {
 
 .btn-primary {
   width: 100%;
-  padding: 12px 20px;
+  padding: 10px;
   font-size: 18px;
   background-color: orange;
   color: #fff;
@@ -63,56 +112,9 @@ h2 {
   background-color: rgba(255, 68, 0, 0.895);
 }
 
-.connect-wallet-button {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative;
-}
-
-.connect-wallet-button:hover {
-  background-color: #0056b3;
-}
-
-.connected {
-  background-color: #4caf50;
-}
-
-.connection-indicator {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  border-radius: 50%;
-}
-
-.data-hora {
-  margin-top: 10px;
-  font-size: 14px;
+.transfer-heading {
+  text-align: center;
+  font-size: 20px;
   color: #333;
-}
-
-.connected .info-section p {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-
-.connection-indicator {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  border-radius: 50%;
+  margin-bottom: 20px;
 }

@@ -34,13 +34,9 @@ const TokenTransfer = () => {
     // Adicione sua lógica de transferência de tokens aqui
   };
 
-  // Adicione sua lógica para exibir número da conta da carteira de tokens após conectada aqui.
   const handleConectarCarteira = () => {
-    // Adicione a lógica de conexão da carteira aqui
-    // Atualize o estado de 'conexaoEstabelecida' com o resultado da conexão
-    setConexaoEstabelecida(!conexaoEstabelecida); // Inverte o estado atual
+    setConexaoEstabelecida(!conexaoEstabelecida);
 
-    // Simule um número de conta ao se conectar (substitua com sua lógica real)
     if (!conexaoEstabelecida) {
       setNumeroConta('1234567890'); // Substitua com o número de conta real
     } else {
@@ -56,25 +52,19 @@ const TokenTransfer = () => {
   return (
     <div className="container">
       <h2>Carteira de Transferência de Tokens</h2>
-      <div className="connect-wallet-container">
-        {conexaoEstabelecida ? (
-          <button
-            className={`connect-wallet-button ${conexaoEstabelecida ? 'connected' : ''}`}
-            onClick={handleConectarCarteira}
-          >
-            Conectar Carteira
-            {conexaoEstabelecida && <div className="connection-indicator"></div>}
-          </button>
-        ) : null}
+      <div className={`connect-wallet-container ${conexaoEstabelecida ? 'connected' : ''}`}>
+        <button className="connect-wallet-button" onClick={handleConectarCarteira}>
+          Conectar Carteira
+          <div className="connection-indicator"></div>
+        </button>
         <p className="data-hora">{dataHoraAtual}</p>
         {conexaoEstabelecida && <p className="numero-conta">Número da Conta: {numeroConta}</p>}
       </div>
-  
+
       {conexaoEstabelecida && (
         <div className="info-section">
           <p>Endereço:</p>
           <p>Saldo da Carteira:</p>
-          {/* Adicionando o campo de inserir conta */}
           <Form.Group controlId="formInserirConta" className="form-group">
             <Form.Label className="form-group-label">Inserir Conta:</Form.Label>
             <Form.Control
@@ -91,7 +81,6 @@ const TokenTransfer = () => {
         </div>
       )}
 
-      {/* Formulário de Transferência aqui */}
       <Form>
         <Form.Group controlId="formDestinatario" className="form-group">
           <h3 className="transfer-heading">Transferir Dinheiro</h3>
@@ -116,7 +105,6 @@ const TokenTransfer = () => {
           />
         </Form.Group>
 
-        {/* Seção de Compra */}
         <Form.Group controlId="formCompra" className="form-group">
           <Form.Label className="form-group-label">Quantidade a Comprar:</Form.Label>
           <Form.Control
@@ -128,7 +116,6 @@ const TokenTransfer = () => {
           />
         </Form.Group>
 
-        {/* Seção de Troca */}
         <Form.Group controlId="formTroca" className="form-group">
           <Form.Label className="form-group-label">Quantidade a Trocar:</Form.Label>
           <Form.Control
@@ -140,17 +127,14 @@ const TokenTransfer = () => {
           />
         </Form.Group>
 
-        {/* Botão de Compra */}
         <Button variant="success" onClick={comprarTokens} className="btn-primary">
           <FontAwesomeIcon icon={faShoppingCart} /> Comprar Tokens
         </Button>
 
-        {/* Botão de Troca */}
         <Button variant="info" onClick={trocarTokens} className="btn-primary">
           <FontAwesomeIcon icon={faExchangeAlt} /> Trocar Tokens
         </Button>
 
-        {/* Botão de Transferir Token */}
         <Button variant="primary" onClick={transferirTokens} className="btn-primary">
           <FontAwesomeIcon icon={faMoneyBill} /> Transferir Tokens
         </Button>
