@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faExchangeAlt, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import Web3 from 'web3';
 import './TokenTransfer.css';
 
 const TokenTransfer = () => {
@@ -14,12 +15,36 @@ const TokenTransfer = () => {
   const [numeroConta, setNumeroConta] = useState('');
   const [contaParaInserir, setContaParaInserir] = useState('');
 
+  // Adicione o estado para a instância Web3
+  const [web3, setWeb3] = useState(null);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setDataHoraAtual(new Date().toLocaleString());
     }, 1000);
 
     return () => clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    // Função para conectar a carteira
+    const conectarCarteira = async () => {
+      try {
+        // Verifica se o MetaMask está instalado
+        if (window.ethereum) {
+          const novaInstanciaWeb3 = new Web3(window.ethereum);
+          await window.ethereum.enable(); // Solicita permissão para acessar a carteira
+          setWeb3(novaInstanciaWeb3);
+          setConexaoEstabelecida(true);
+        } else {
+          alert('Por favor, instale o MetaMask para utilizar esta funcionalidade.');
+        }
+      } catch (error) {
+        console.error('Erro ao conectar a carteira:', error);
+      }
+    };
+
+    conectarCarteira();
   }, []);
 
   const comprarTokens = async () => {
@@ -35,12 +60,17 @@ const TokenTransfer = () => {
   };
 
   const handleConectarCarteira = () => {
-    setConexaoEstabelecida(!conexaoEstabelecida);
+    if (web3) {
+      setConexaoEstabelecida(!conexaoEstabelecida);
 
-    if (!conexaoEstabelecida) {
-      setNumeroConta('1234567890'); // Substitua com o número de conta real
-    } else {
-      setNumeroConta('');
+      if (!conexaoEstabelecida) {
+        // Substitua com a lógica real para obter o número da conta da carteira
+        web3.eth.getAccounts().then((contas) => {
+          setNumeroConta(contas[0]);
+        });
+      } else {
+        setNumeroConta('');
+      }
     }
   };
 
