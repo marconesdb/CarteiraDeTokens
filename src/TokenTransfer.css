@@ -1,0 +1,118 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #6c6868;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(100% - 40px);
+  margin: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  background-color: #d8d108;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  margin: 0 auto;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: orange;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 68, 0, 0.895);
+}
+
+.connect-wallet-button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.connect-wallet-button:hover {
+  background-color: #0056b3;
+}
+
+.connected {
+  background-color: #4caf50;
+}
+
+.connection-indicator {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.data-hora {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.connected .info-section p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.connection-indicator {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
